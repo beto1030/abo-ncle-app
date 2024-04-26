@@ -43,8 +43,6 @@ flashcards.forEach((flashcard, index) => {
       
      flashcard.nextElementSibling.style.display = 'block';
      flashcard.nextElementSibling.style.position= 'absolute';
-     flashcard.nextElementSibling.style.top= '5px';
-     flashcard.nextElementSibling.style.right= '5px';
      flashcard.nextElementSibling.style.color= 'green';
 
 
