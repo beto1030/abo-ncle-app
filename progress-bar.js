@@ -33,13 +33,20 @@ flashcards.forEach((flashcard, index) => {
       clickedFlashcards[index] = true;
 
         
-      // Show the check mark
-      const checkMark = document.querySelector('.check-mark');
-      console.log(flashcard.nextElementSibling);
+      const span = document.createElement("span");
+      span.innerHTML = "✔";
+      flashcard.parentNode.appendChild(span);
+
+     // // Show the check mark
+     // const checkMark = document.querySelector('.check-mark');
+      console.log(flashcard.parentNode);
       
      flashcard.nextElementSibling.style.display = 'block';
+     flashcard.nextElementSibling.style.position= 'absolute';
+     flashcard.nextElementSibling.style.top= '5px';
+     flashcard.nextElementSibling.style.right= '5px';
+     flashcard.nextElementSibling.style.color= 'green';
 
-     // clickedFlashcards[index]
 
 
       // Add the "flipped" class to flip the flashcard
