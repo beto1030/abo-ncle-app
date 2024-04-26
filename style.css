@@ -41,9 +41,7 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));;
     width: 800px;
     margin: 0 auto;
-    border: 1px solid #ccc;
     grid-gap: 20px;
-    padding: 20px;
 }
 
 footer {

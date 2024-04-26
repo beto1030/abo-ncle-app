@@ -1,0 +1,32 @@
+.flashcard-wrapper {
+  display: inline-block;
+  perspective: 1000px;
+  position: relative;
+  width: 200px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+
+}
+
+.flashcard {
+  width: 100%; /* Adjust width as needed */
+  height: 100%; /* Adjust height as needed */
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+
+.check-mark {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: green; /* Change color as needed */
+  display: none;
+}
+
