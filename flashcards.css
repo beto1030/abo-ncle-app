@@ -1,0 +1,43 @@
+.flashcard-container {
+    perspective: 1000px; /* Define perspective for 3D effect */
+}
+
+.flashcard {
+    border: solid 1px;
+    width: 100%;
+    height: 170px;
+    position: relative;
+    transform-style: preserve-3d; /* Preserve 3D transformation */
+    transition: transform 0.5s; /* Smooth transition for flipping effect */
+}
+
+.flashcard .front,
+.flashcard .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide back face initially */
+    flex-direction: column;
+    text-align: center;
+}
+
+.flashcard .front {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(0deg); /* Initial state */
+}
+
+.flashcard .back {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg); /* Flipped state */
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg); /* Apply rotation for flipped state */
+}
+

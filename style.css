@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Example CSS styles for the flashcards page */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+nav ul li a,footer a {
+    color: #fff;
+    text-decoration: none;
+}
+nav ul li a:hover,footer a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));;
+    width: 800px;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 10px;
+}
+
