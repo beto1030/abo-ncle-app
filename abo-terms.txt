@@ -1,0 +1,9 @@
+anatomy term1: anatomy def1:anatomy
+anatomy term2: anatomy def2:anatomy
+anatomy term3: anatomy def3:anatomy
+refractive error term1: refractive error def1:refractive error
+refractive error term2: refractive error def2:refractive error
+refractive error term3: refractive error def3:refractive error
+formulas term1: formulas def1:formulas
+formulas term2: formulas def2:formulas
+formulas term3: formulas def3:formulas

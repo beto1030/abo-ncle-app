@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Flashcards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="flashcards.css">
-    <link rel="stylesheet" href="progressBar.css">
-    <link rel="stylesheet" href="flashcards-checkmark.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/flashcards.css">
+    <link rel="stylesheet" href="css/progressBar.css">
+    <link rel="stylesheet" href="css/flashcards-checkmark.css">
     
 </head>
-<body>
+<body class="">
     <header>
         <div class="logo">
             <img src="logo.png" alt="abo-ncle-flashcards">
@@ -26,118 +26,35 @@
     </header>
 
     <main>
-        <h1 style="text-align: center;">Anatomy</h1></br>
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
-        </div>
-        <section class="grid-container">
+            <h1 style="text-align: center;">Anatomy</h1></br>
+            <div class="progress-bar"> <div class="progress" id="progress"></div> </div>
 
-            
+            <section id="grid-container" class="grid-container">
+                <!-- Flashcards will be dynamically generated here -->
 
-            <!-- Flashcards will be dynamically generated here -->
-            <div class="flashcard-wrapper">
-                <div class="flashcard">
-                
-                        <div class="front">
-                            <h2>Eyelids</h2>
-                            <p></p>
-                        </div>
-                
-                        <div class="back">
-                            <h2>Answer</h2>
-                            <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                        </div>
-                        
-                </div>
-            </div>
 
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Extraocular Muscles</h2>
-                        <p></p>
+
+
+
+
+                <!--<div class="flashcard-wrapper">
+                    <div class="flashcard">
+                            <div class="front">
+                                <h2>Eyelids</h2>
+                            </div>
+                            <div class="back">
+                                <p>Eyelids protect the eye from foreign bodies and excessive light</p>
+                            </div>
                     </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Cornea</h2>
-                        <p></p>
-                    </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Iris</h2>
-                        <p></p>
-                    </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Pupil</h2>
-                        <p></p>
-                    </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Crystalline Lens</h2>
-                        <p></p>
-                    </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Retina</h2>
-                        <p></p>
-                    </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard-wrapper">
-                <div class="flashcard"  >
-                    <div class="front">
-                        <h2>Optic Disk</h2>
-                        <p></p>
-                    </div>
-                    <div class="back">
-                        <h2>Answer</h2>
-                        <p>Dolor suscipit blanditiis similique omnis molestias Sed voluptates molestiae consequuntur.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </div>-->
+
+
+
+
+
+            </section>
     </main>
+
 
     <footer>
         <div class="footer-links">
@@ -155,14 +72,12 @@
             &copy; 2024 Your Website Name. All rights reserved.
         </div>
     </footer>
+
+    <script src="js/flashcards.js"></script>
+    <script src="js/progress-bar.js" defer></script>
+
     <script>
-        document.querySelectorAll('.flashcard').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
-            });
-        });
     </script>
-    <script src="progress-bar.js"></script>
 
 </body>
 </html>
