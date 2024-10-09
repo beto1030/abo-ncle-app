@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards by Category</title>
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .flashcard-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .flashcard {
+    width: 200px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  .flashcard:hover {
+    transform: scale(1.05);
+  }
+  .flashcard-content {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="flashcard-container" id="flashcardContainer">
+  </div>
+</main>
+
+<script>
+  let categoriesBackup = {}; // Store the original state of categories
+
+  // Load data from the text file
+  fetch('abo-terms.txt')
+    .then(response => response.text())
+    .then(data => {
+      // Split the data into lines
+      const lines = data.split('\n');
+
+      // Extract terms, definitions, and categories from each line
+      const items = lines.map(line => {
+        const [term, def, category] = line.split(':');
+        return { term, def, category };
+      });
+
+      // Group items by category
+      const categories = {};
+      items.forEach(item => {
+        if (!categories[item.category]) {
+          categories[item.category] = [];
+        }
+        categories[item.category].push(item);
+      });
+      delete categories[Object.keys(categories).pop()];
+
+
+      categoriesBackup = { ...categories }; // Backup the original state of categories
+
+      // Display flashcards based on category
+      const flashcardContainer = document.getElementById('flashcardContainer');
+      Object.keys(categories).forEach(category => {
+        const categoryFlashcard = document.createElement('div');
+        categoryFlashcard.classList.add('flashcard');
+        categoryFlashcard.innerHTML = `
+          <div class="flashcard-content">
+            <h2>${category}</h2>
+            <p>Click to see terms</p>
+          </div>
+        `;
+        categoryFlashcard.addEventListener('click', () => {
+          showTerms(categories[category]);
+        });
+        flashcardContainer.appendChild(categoryFlashcard);
+      });
+
+      // Function to display terms in a flashcard format
+      function showTerms(terms) {
+        flashcardContainer.innerHTML = ''; // Clear previous flashcards
+
+        terms.forEach(term => {
+          const termFlashcard = document.createElement('div');
+          termFlashcard.classList.add('flashcard');
+          termFlashcard.innerHTML = `
+            <div class="flashcard-content">
+              <h3>${term.term}</h3>
+              <p>${term.def}</p>
+            </div>
+          `;
+          flashcardContainer.appendChild(termFlashcard);
+        });
+
+        // Add back button
+        const backButton = document.createElement('button');
+        backButton.textContent = 'Back';
+        backButton.addEventListener('click', () => {
+          restoreCategories();
+        });
+        flashcardContainer.appendChild(backButton);
+      }
+
+      // Function to restore the original state of categories
+      function restoreCategories() {
+        flashcardContainer.innerHTML = ''; // Clear previous flashcards
+
+        Object.keys(categoriesBackup).forEach(category => {
+          const categoryFlashcard = document.createElement('div');
+          categoryFlashcard.classList.add('flashcard');
+          categoryFlashcard.innerHTML = `
+            <div class="flashcard-content">
+              <h2>${category}</h2>
+              <p>Click to see terms</p>
+            </div>
+          `;
+          categoryFlashcard.addEventListener('click', () => {
+            showTerms(categoriesBackup[category]);
+          });
+          flashcardContainer.appendChild(categoryFlashcard);
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+</script>
+</body>
+</html>
+

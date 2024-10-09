@@ -1,0 +1,60 @@
+        <h3> I. Ophthalmic Optics (25%) </h3>
+                <span> Terminology </span>
+                <br/>
+                <span> Prescriptions </span>
+                <br/>
+                <span> Lens characteristics </span>
+                <br/>
+                <span> Lens powers and formulas </span>
+                <br/>
+                <span> Lens types </span>
+                <br/>
+                <span> Various lens materials </span>
+                <br/>
+                <span> Effect of changes in base curve and thickness </span>
+                <br/>
+                <span> Calculating prismatic effects </span>
+                <br/>
+                <span> Effect of lens materials and design on thickness, weight, and dispersion (e.g., aspheric, digital surfacing) </span>
+                <br/>
+                <span> Measurement systems and conversions (e.g., Imperial, metric, box) </span>
+                <br/>
+                <span> Lens options for various occupations and other lifestyle activities </span>
+                <br/>
+                <span> Usable accommodation and the range of vision with various lens powers </span>
+                <br/>
+                <span> Neutralization of lenses </span>
+                <br/>
+                <span> Ophthalmic Formulas </span>
+                <br/>
+        <h3> II. Ocular Anatomy, Physiology, and Pathology, and Refraction (10%) </h3>
+                <span> Structure of the eye and function </span>
+                <br/>   
+                <span> Pathology </span>
+                <br/>
+                <span> Refraction </span>
+                <br/>
+        <h3> III. Ophthalmic Products (20%) </h3>
+                <span> Frames </span>
+                <br/>   
+                <span> Lenses </span>
+                <br/>
+                <span> Low Vision Aids </span>
+                <br/>
+                <span> Preassembled eyewear </span>
+                <br/>
+        <h3> IV. Instrumentation (15%) </h3>
+                <span> Use of lens power measuring devices </span>
+                <br/>   
+                <span> Use of lens measurement devices </span>
+                <br/>
+                <span> Dispensing instrumentation </span>
+                <br/>
+        <h3> V. Dispensing Procedures (20%) </h3>
+                <span> Patient history </span>
+                <br/>   
+                <span> Fitting, adjusting, and measuring </span>
+                <br/>
+        <h3> VI. Laws, Regulations, and Standards (10%) </h3>
+                <span> (no subheadings) </span>
+
