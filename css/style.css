@@ -1,65 +1,72 @@
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
-/* Example CSS styles for the flashcards page */
+
+/* General styles for the body and layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Header styles */
 header {
-    padding: 10px 20px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 0px;
-}
-nav ul li a {
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 20px;
     text-decoration: none;
-    color: #000000;
-    display: inline-block;
-    padding: 15px;
-    margin-bottom: 5px;
-    border: solid;
-
+    color: #000;
+    z-index: 2;
 }
 
-main {
-    padding-left: 20px;
-}
-main h3 {
-}
-
-.grid-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));;
-    width: 800px;
-    margin: 0 auto;
-    grid-gap: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.footer-links ul {
-    list-style-type: none;
+header nav ul {
+    list-style: none;
     padding: 0;
+    margin: 0;
+}
+header ul li {
+    margin: 5px 0;
+}
+header a {
+    text-decoration: none;
+    color: #000;
 }
 
-.footer-links ul li {
-    display: inline;
-    margin-right: 20px;
+/* Current section title */
+#current-section a {
+    color: #000;
+    text-decoration: none;
+}
+main {
+    position: absolute;
+    top: 20px;
+    width: 100vw;
 }
 
-.social-icons a {
-    color: #fff;
-    margin-right: 10px;
+main h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
-
+main h2::after {
+    content: " Terms";
+}
+#terms {
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    z-index: 2;
+}
+#terms p {
+    margin: 5px 0;
+}
+#terms a {
+    text-decoration: none;
+    color: #000;
+}
+.video {
+    margin: 0 auto;
+    width: 100px;
+}

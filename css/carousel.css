@@ -1,0 +1,43 @@
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    /*overflow: hidden;*/
+    border: solid;
+    padding: 40px;
+    text-align: center;
+    margin: 0 auto;
+    width: 50vw;
+    height: 250px; /* Ensure consistent height for all slides */
+}
+
+/* Each slide */
+.carousel-slide {
+}
+
+/* Active slide */
+.carousel-slide.active {
+    opacity: 1;
+    display: block; /* Show the active slide */
+}
+
+/* Navigation container */
+.carousel-nav {
+    margin: 20px auto;
+    width: 40vw;
+    text-align: center;
+}
+
+/* Navigation buttons */
+.carousel-nav button {
+    width: 80px;
+    margin: 5px 20px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-nav button:hover {
+    background-color: #555;
+}
+
