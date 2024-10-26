@@ -3,7 +3,7 @@ let slides = [];
 
 // Define section titles
 const sectionTitles = {
-    'ocular-anatomy': 'Ocular Anatomy',
+    'anatomy': 'Anatomy',
     'physiology': 'Physiology',
     'pathology': 'Pathology'
 };
@@ -148,6 +148,6 @@ function updateCurrentSection(section) {
 // Call this function initially to set up the navigation menu
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavMenu();
-    loadSection('ocular-anatomy'); // Load initial section
+    loadSection('anatomy'); // Load initial section
     attachTermListeners(); // Attach listeners to the list of terms
 });

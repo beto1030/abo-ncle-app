@@ -1,0 +1,156 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General styles for the body and layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+header {
+    background-color: white; /* Ensure background is visible */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Higher z-index for visibility */
+    padding: 10px 20px; /* Add some padding */
+}
+
+/* Adjusted margin for the main content to avoid overlapping */
+main {
+    width: 100%;
+    padding: 10px;
+    margin-top: 70px; /* Add margin-top to create space below the header */
+}
+
+
+/* .main-content */
+.main-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* Content Wrapper to hold terms and flashcards */
+.content-wrapper {
+    display: flex;
+    flex-direction: row; /* Stack vertically on mobile */
+    justify-content: space-between; /* Space between terms and flashcards */
+    width: 100%;
+}
+
+/* Section title */
+main h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Categories and Terms */
+#terms {
+    width: 100vw;
+    margin-bottom: 20px;
+}
+
+#terms h3 {
+    margin-bottom: 10px;
+}
+
+#terms p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+#terms a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#terms a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Flashcard and Video Section */
+.carousel-container, .video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Flashcard Content */
+.carousel-container {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Dynamic height based on content */
+}
+
+/* Video Section */
+.video {
+    background-color: #333;
+    color: white;
+    height: 250px; /* Set a fixed height for video */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Navigation Buttons */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.carousel-nav button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: #0056b3;
+}
+
+/* Larger Screens - Tablet and Up */
+@media (min-width: 768px) {
+    .content-wrapper {
+        flex-direction: row; /* Arrange side by side */
+        justify-content: space-between; /* Space between terms and flashcards */
+    }
+
+    #terms {
+        width: 40%; /* Set width for terms */
+        margin-right: 20px; /* Space between terms and flashcards */
+    }
+
+    .carousel-container {
+        width: 60%; /* Set width for flashcards */
+    }
+
+    #terms a {
+        width: 100%; /* Ensure terms fill their container */
+    }
+}
