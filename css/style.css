@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+
+h2 {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+
+main {
+    margin: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-content {
+    border: solid 1px;
+    text-align: center;
+    position: relative;
+    min-width: 400px;
+    min-height: 200px;
+    max-width: 400px;
+    max-height: 200px;
+    
+}
+
+#section-content {
+    border: solid 1px;
+    padding: 60px 0;
+}
+
+.carousel-nav {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.carousel-nav button{
+    padding: 5px 40px;
+    margin: 0 20px;
+}

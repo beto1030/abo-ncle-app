@@ -2,44 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flashcards</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="flashcards.css">
-    
+    <link rel="stylesheet" href="css/headerr.css">
+    <link rel="stylesheet" href="css/mainn.css">
+    <link rel="stylesheet" href="css/carousell.css"> <!-- Add any other styles needed -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="abo-ncle-flashcards">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="flashcards.html">Flashcards</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <!-- Add more navigation links as needed -->
-            </ul>
-        </nav>
-    </header>
 
-    <main>This is the homepage.</main>
 
-    <footer>
-        <div class="footer-links">
-            <ul>
-                <li><a href="contact.html">Contact</a></li>
-                <!-- Add more footer links as needed -->
-            </ul>
+
+    <main>
+        <ul id="nav-menu"></ul>
+        <div id="terms"></div>
+
+        <div class="main-content">
+            <h2 id="section-title"></h2>
+            <div class="carousel-container" id="carousel-container">
+                <div id="section-content"></div>
+            </div>
+            <!-- Flashcard navigation buttons -->
+            <div class="carousel-nav">
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
         </div>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <!-- Add more social media icons as needed -->
-        </div>
-        <div class="copyright">
-            &copy; 2024 Alberto Alvarado
-        </div>
-    </footer>
+
+
+
+    </main>
+        <!-- Video -->
+        <div class="video">video here</div>
+
+
+
+    <script src="js/main.js"></script>
 </body>
 </html>
+

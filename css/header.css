@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General styles for the body and layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Header styles */
+header {
+    position: fixed; /* Change to fixed for better usability */
+    top: 0; /* Stick to the top of the viewport */
+    left: 0;
+    right: 0; /* Stretch to full width */
+    background-color: white; /* Ensure background is visible */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Higher z-index for visibility */
+    padding: 10px 20px; /* Add some padding */
+}
+
+/* Navigation menu styles */
+header nav {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items */
+}
+
+header nav ul {
+    display: flex; /* Align items horizontally */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px; /* Horizontal margin for spacing */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold; /* Bold for emphasis */
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+header nav a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items */
+    }
+
+    header nav ul li {
+        margin: 10px 0; /* Vertical margin for spacing */
+    }
+}
+
