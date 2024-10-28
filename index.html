@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/headerr.css">
     <link rel="stylesheet" href="css/mainn.css">
     <link rel="stylesheet" href="css/carousell.css"> <!-- Add any other styles needed -->
@@ -14,11 +14,22 @@
 
 
     <main>
+
+        <!--
         <ul id="nav-menu"></ul>
+
         <div id="terms"></div>
+        -->
 
         <div class="main-content">
-            <h2 id="section-title"></h2>
+
+            <div class="category-header">
+                <!--<span id="current-category">Anatomy</span>-->
+                <select class="category-dropdown" onchange="changeCategory(this.value)">
+                </select>
+            </div>
+
+            <!--<h2 id="section-title"></h2>-->
             <div class="carousel-container" id="carousel-container">
                 <div id="section-content"></div>
             </div>
@@ -32,12 +43,44 @@
 
 
     </main>
-        <!-- Video -->
-        <div class="video">video here</div>
+        <!-- Video-->
+        <!--<div class="video">video here</div>-->
 
 
 
     <script src="js/main.js"></script>
+    <script>
+        // Prevent zooming when touching the carousel navigation area
+const carouselNav = document.querySelector('.carousel-nav');
+
+carouselNav.addEventListener('touchstart', function (event) {
+    event.preventDefault(); // Prevent default action (zooming)
+});
+        let currentSlideIndex = 0;
+let slides = [];
+
+// Function to change slides
+function changeSlide(n) {
+    currentSlideIndex += n;
+
+    // Wrap around if out of bounds
+    if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+
+    showSlide(currentSlideIndex);
+}
+
+// Event listener for buttons
+document.querySelectorAll('.carousel-nav button').forEach(button => {
+    button.addEventListener('click', () => {
+        changeSlide(button.classList.contains('prev') ? -1 : 1);
+    });
+    button.addEventListener('touchstart', (event) => {
+        event.preventDefault(); // Prevent default touch action
+        changeSlide(button.classList.contains('prev') ? -1 : 1);
+    });
+});
+    </script>
 </body>
 </html>
 

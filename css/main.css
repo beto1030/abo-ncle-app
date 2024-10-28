@@ -7,17 +7,6 @@
 /* General styles for the body and layout */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Header styles */
-header {
-    background-color: white; /* Ensure background is visible */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 1000; /* Higher z-index for visibility */
-    padding: 10px 20px; /* Add some padding */
 }
 
 /* Adjusted margin for the main content to avoid overlapping */
@@ -30,24 +19,17 @@ main {
 
 /* .main-content */
 .main-content {
-    display: flex;
-    justify-content: space-evenly;
+    display: block;
 }
 
 
 /* Content Wrapper to hold terms and flashcards */
-.content-wrapper {
-    display: flex;
-    flex-direction: row; /* Stack vertically on mobile */
-    justify-content: space-between; /* Space between terms and flashcards */
-    width: 100%;
-}
 
 /* Section title */
-main h2 {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 15px;
+main .category-header {
+    display: block;
+    margin-top: -30px;
+
 }
 
 /* Categories and Terms */
