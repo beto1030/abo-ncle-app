@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/mainn.css">
     <link rel="stylesheet" href="css/carousell.css"> <!-- Add any other styles needed -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all-cards-popup.css">
 </head>
 <body>
 
@@ -21,24 +22,44 @@
         <div id="terms"></div>
         -->
 
-        <div class="main-content">
-
             <div class="category-header">
                 <!--<span id="current-category">Anatomy</span>-->
                 <select class="category-dropdown" onchange="changeCategory(this.value)">
                 </select>
             </div>
+        <div class="main-content">
+
 
             <!--<h2 id="section-title"></h2>-->
+            <!--
             <div class="carousel-container" id="carousel-container">
                 <div id="section-content"></div>
             </div>
+            -->
+            <div class="carousel-container" id="carousel-container">
+                <div id="section-content"></div>
+
+                <!-- Popup Grid View (outside of carousel-container) -->
+                <div id="grid-view-popup" class="hidden popup">
+                    <div class="popup-content">
+                        <span class="close-button" onclick="closeGridView()">&times;</span>
+                        <div id="grid-view-container"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
             <!-- Flashcard navigation buttons -->
             <div class="carousel-nav">
                 <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
                 <button class="next" onclick="changeSlide(1)">&#10095;</button>
             </div>
-        </div>
+                <div id="popupBtnContainer">
+                    <button id="popupBtn" onclick="openGridView()">View All Cards</button>
+                </div>
 
 
 
@@ -56,30 +77,7 @@ const carouselNav = document.querySelector('.carousel-nav');
 carouselNav.addEventListener('touchstart', function (event) {
     event.preventDefault(); // Prevent default action (zooming)
 });
-        let currentSlideIndex = 0;
-let slides = [];
 
-// Function to change slides
-function changeSlide(n) {
-    currentSlideIndex += n;
-
-    // Wrap around if out of bounds
-    if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
-    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
-
-    showSlide(currentSlideIndex);
-}
-
-// Event listener for buttons
-document.querySelectorAll('.carousel-nav button').forEach(button => {
-    button.addEventListener('click', () => {
-        changeSlide(button.classList.contains('prev') ? -1 : 1);
-    });
-    button.addEventListener('touchstart', (event) => {
-        event.preventDefault(); // Prevent default touch action
-        changeSlide(button.classList.contains('prev') ? -1 : 1);
-    });
-});
     </script>
 </body>
 </html>
