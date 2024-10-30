@@ -15,34 +15,17 @@
 
 
     <main>
-
-        <!--
-        <ul id="nav-menu"></ul>
-
-        <div id="terms"></div>
-        -->
-
             <div class="category-header">
-                <!--<span id="current-category">Anatomy</span>-->
-                <select class="category-dropdown" onchange="changeCategory(this.value)">
-                </select>
+                <select class="category-dropdown"></select>
             </div>
         <div class="main-content">
-
-
-            <!--<h2 id="section-title"></h2>-->
-            <!--
-            <div class="carousel-container" id="carousel-container">
-                <div id="section-content"></div>
-            </div>
-            -->
             <div class="carousel-container" id="carousel-container">
                 <div id="section-content"></div>
 
                 <!-- Popup Grid View (outside of carousel-container) -->
                 <div id="grid-view-popup" class="hidden popup">
                     <div class="popup-content">
-                        <span class="close-button" onclick="closeGridView()">&times;</span>
+                        <span id="closePopupBtn" class="close-button">&times;</span>
                         <div id="grid-view-container"></div>
                     </div>
                 </div>
@@ -54,11 +37,11 @@
         </div>
             <!-- Flashcard navigation buttons -->
             <div class="carousel-nav">
-                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
             </div>
                 <div id="popupBtnContainer">
-                    <button id="popupBtn" onclick="openGridView()">View All Cards</button>
+                    <button id="openPopupBtn">View All Cards</button>
                 </div>
 
 
@@ -69,11 +52,12 @@
 
 
 
-    <script src="js/main.js"></script>
-    <script>
 
-
-    </script>
+    <script type="module" src="js/globals.js"></script>
+    <script type="module" src="js/data.js"></script>
+    <script type="module" src="js/events.js"></script>
+    <script type="module" src="js/ui.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
 
