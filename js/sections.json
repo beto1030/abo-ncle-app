@@ -1,6 +1,20 @@
 {
-  "anatomy": "Anatomy",
-  "pathology": "Pathology",
-  "physiology": "Physiology",
-  "test": "Test"
+  "sections": [
+    {
+      "key": "anatomy",
+      "title": "Anatomy"
+    },
+    {
+      "key": "pathology",
+      "title": "Pathology"
+    },
+    {
+      "key": "physiology",
+      "title": "Physiology"
+    },
+    {
+      "key": "test",
+      "title": "Test"
+    }
+  ]
 }

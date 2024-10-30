@@ -1,5 +1,8 @@
-import {setCurrentSlideIndex,currentSlideIndex, slides, sectionTitles} from './globals.js';
+import {setCurrentSlideIndex,currentSlideIndex, slides} from './globals.js';
 import {showSlide} from './ui.js';
+
+let sectionTitles = {}; // Initialize an empty object to hold section titles
+
 
 // Function to load section content dynamically
 export function loadSection(section) {
@@ -12,13 +15,17 @@ export function loadSection(section) {
             return response.json();
         })
         .then(sectionTitles => {
-            // Check if the requested section exists in the fetched sectionTitles
-            if (!sectionTitles[section]) {
-                throw new Error(`Section "${section}" does not exist.`);
-            }
+            // Create a mapping of section titles from the fetched data
+            const titles = {};
+            sectionTitles.sections.forEach(sectionData => {
+                sectionTitles[sectionData.key] = sectionData.title;
+            });
 
-            // Fetch the corresponding HTML file for the section
-            return fetch(`sections/${section}.html`);
+            // Now update the document title
+            document.title = sectionTitles[section] || 'Default Title'; // Fallback to a default title if not found
+
+            // Continue loading the section content
+            return fetch(`./sections/${section}.html`);
         })
         .then(response => {
             console.log(response);
@@ -55,6 +62,11 @@ export function loadSection(section) {
         .catch(error => console.error('Error loading section:', error));
 }
 export function populateDropdown() {
+    const categoryDropdown = document.querySelector('.category-dropdown');
+
+    // Clear existing options
+    categoryDropdown.innerHTML = '';
+
     fetch('./js/sections.json')
         .then(response => {
             if (!response.ok) {
@@ -65,15 +77,11 @@ export function populateDropdown() {
         .then(sectionTitles => {
             const categoryDropdown = document.querySelector('.category-dropdown');
 
-            // Clear existing options
-            categoryDropdown.innerHTML = '';
-
-            // Populate dropdown with section titles
-            Object.entries(sectionTitles).forEach(([key, value]) => {
+            sectionTitles.sections.forEach(section => {
                 const option = document.createElement('option');
-                option.value = key; // Use the key as the value
-                option.textContent = value; // Use the value as the text
-                categoryDropdown.appendChild(option); // Append the option
+                option.value = section.key; // Use the key as the value
+                option.textContent = section.title; // Use the title as the text
+                categoryDropdown.appendChild(option); // Append the option to the dropdown
             });
         })
         .catch(error => console.error('Error populating dropdown:', error));
