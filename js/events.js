@@ -1,4 +1,4 @@
-import {setCurrentSlideIndex, currentSlideIndex, slides} from './globals.js';
+import {setCurrentSlideIndex, currentSlideIndex, slides, slideElements} from './globals.js';
 import {showSlide, openGridView, closeGridView, changeCategory} from './ui.js';
 
 
@@ -14,11 +14,11 @@ export function changeSlide(n) {
        setCurrentSlideIndex(slides.length - 1); // Go to the last slide
     }
 
-    showSlide(currentSlideIndex);
+    showSlide(currentSlideIndex, slideElements);
 }
 
 export function setupEventListeners() {
-    document.querySelector('.category-dropdown').addEventListener('change', (event) => {
+    document.getElementById('category-dropdown').addEventListener('change', (event) => {
         changeCategory(event.target.value);
     });
 

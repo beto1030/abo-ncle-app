@@ -7,12 +7,9 @@ export function setCurrentSlideIndex(index) {
 
 export let slides = [];
 
+//export const slideElement= document.getElementById('carousel-slide');
 
-// Define section titles
-/*
-export const sectionTitles = {
-    'anatomy': 'Anatomy',
-    'physiology': 'Physiology',
-    'pathology': 'Pathology'
-};
-*/
+//export const slideElements = document.getElementsByClassName('carousel-slide');
+
+export const slideElements = document.getElementById('section-content').children;
+

@@ -1,73 +1,79 @@
-import {setCurrentSlideIndex,currentSlideIndex, slides} from './globals.js';
+// data.js
+import {setCurrentSlideIndex,currentSlideIndex, slides, slideElements} from './globals.js';
 import {showSlide} from './ui.js';
 
 let sectionTitles = {}; // Initialize an empty object to hold section titles
 
-
-// Function to load section content dynamically
-export function loadSection(section) {
-    // Fetch the sections.json file first
-    fetch('./js/sections.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(sectionTitles => {
-            // Create a mapping of section titles from the fetched data
-            const titles = {};
-            sectionTitles.sections.forEach(sectionData => {
-                sectionTitles[sectionData.key] = sectionData.title;
-            });
-
-            // Now update the document title
-            document.title = sectionTitles[section] || 'Default Title'; // Fallback to a default title if not found
-
-            // Continue loading the section content
-            return fetch(`./sections/${section}.html`);
-        })
-        .then(response => {
-            console.log(response);
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.text();
-        })
-        .then(content => {
-            // Update the title and current category
-            document.title = sectionTitles[section];
-            document.getElementById('section-content').innerHTML = content;
-
-            // Clear slides array before populating with new slides
-            slides.length = 0;
-
-            console.log("slides before:");
-            console.log(slides);
-
-            // Populate slides array with new cards from this section only
-            let existingSlides = document.querySelectorAll('.carousel-slide');
-
-            existingSlides.forEach((card, index) => {
-                card.dataset.number = index + 1; // Set data attribute for numbering
-                slides.push(card); // Add each new card to the slides array
-            });
-            console.log("slides after:");
-            console.log(slides);
-
-            // Reset slides and display the first one
-            setCurrentSlideIndex(0); // Use the variable directly instead of a function to set it
-            showSlide(currentSlideIndex);
-        })
-        .catch(error => console.error('Error loading section:', error));
+// Function to fetch the section titles from JSON
+async function fetchSectionTitles() {
+    const response = await fetch('./js/sections.json');
+    if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
+    }
+    const data = await response.json();
+    const titles = {};
+    data.sections.forEach(item => {
+        titles[item.key] = item.title;
+    });
+    return titles;
 }
-export function populateDropdown() {
-    const categoryDropdown = document.querySelector('.category-dropdown');
 
+// Function to fetch the HTML content of a section
+export async function fetchSectionContent(section) {
+    const response = await fetch(`./sections/${section}.html`);
+    if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
+    }
+    return await response.text();
+}
+
+// Main function to load a section
+export async function loadSection(section) {
+    try {
+        const titles = await fetchSectionTitles();
+        const title = titles[section] || 'Default Title';
+        const content = await fetchSectionContent(section);
+        return { title, content };
+    } catch (error) {
+        console.error('Error loading section:', error);
+        throw error; // Re-throw error for further handling if needed
+    }
+}
+
+
+
+// Separate function to update the DOM with the content returned by loadSection
+export function updateDOMWithContent({ title, content }, { slides, setCurrentSlideIndex, showSlide }, updateDOM) {
+    // Call the updateDOM function to change the title and content
+    updateDOM(title, content);
+
+    // Clear slides array before populating with new slides
+    slides.length = 0;
+
+    // Populate slides array with new cards from the passed content
+    const existingSlides = content.match(/<div class="carousel-slide"(?:\s[^>]*)?>[\s\S]*?<\/div>/g) || [];
+
+
+    existingSlides.forEach((card, index) => {
+        // Create a temporary slide element
+        const slideElement = {
+            dataset: { number: index + 1 },
+            innerHTML: card
+        };
+        slides.push(slideElement); // Add each new card to the slides array
+    });
+
+    setCurrentSlideIndex(0);
+    showSlide(currentSlideIndex, slideElements);
+}
+
+
+export function populateDropdown(categoryDropdown) {
     // Clear existing options
+    console.log(categoryDropdown);
     categoryDropdown.innerHTML = '';
 
-    fetch('./js/sections.json')
+    return fetch('./js/sections.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -75,8 +81,6 @@ export function populateDropdown() {
             return response.json();
         })
         .then(sectionTitles => {
-            const categoryDropdown = document.querySelector('.category-dropdown');
-
             sectionTitles.sections.forEach(section => {
                 const option = document.createElement('option');
                 option.value = section.key; // Use the key as the value
@@ -84,6 +88,13 @@ export function populateDropdown() {
                 categoryDropdown.appendChild(option); // Append the option to the dropdown
             });
         })
-        .catch(error => console.error('Error populating dropdown:', error));
+        .catch(error => {
+            console.error('Error populating dropdown:', error);
+            throw error;
+        });
 }
+export const updateDOM = (title, content) => {
+    document.title = title; // Update the document title
+    document.getElementById('section-content').innerHTML = content; // Update the section content
+};
 
