@@ -1,3 +1,4 @@
+/*
 // data.js
 import {setCurrentSlideIndex,currentSlideIndex, slides, slideElements} from './globals.js';
 import {showSlide} from './ui.js';
@@ -45,16 +46,18 @@ export async function loadSection(section) {
 // Separate function to update the DOM with the content returned by loadSection
 export function updateDOMWithContent({ title, content }, { slides, setCurrentSlideIndex, showSlide }, updateDOM) {
     // Call the updateDOM function to change the title and content
-    updateDOM(title, content);
 
     // Clear slides array before populating with new slides
     slides.length = 0;
 
     // Populate slides array with new cards from the passed content
-    const existingSlides = content.match(/<div class="carousel-slide"(?:\s[^>]*)?>[\s\S]*?<\/div>/g) || [];
+    //const existingSlides = content.match(/<div class="carousel-slide"(?:\s[^>]*)?>[\s\S]*?<\/div>/g) || [];
+    const existingSlides = content.match(/<h3(?:\s[^>]*)?>[\s\S]*?<\/h3>/g) || [];
+    console.log(existingSlides);
 
 
     existingSlides.forEach((card, index) => {
+        console.log(card);
         // Create a temporary slide element
         const slideElement = {
             dataset: { number: index + 1 },
@@ -62,7 +65,10 @@ export function updateDOMWithContent({ title, content }, { slides, setCurrentSli
         };
         slides.push(slideElement); // Add each new card to the slides array
     });
+    console.log("slides data.js");
+    console.log(slides);
 
+    updateDOM(title, content);
     setCurrentSlideIndex(0);
     showSlide(currentSlideIndex, slideElements);
 }
@@ -70,7 +76,7 @@ export function updateDOMWithContent({ title, content }, { slides, setCurrentSli
 
 export function populateDropdown(categoryDropdown) {
     // Clear existing options
-    console.log(categoryDropdown);
+    //console.log(categoryDropdown);
     categoryDropdown.innerHTML = '';
 
     return fetch('./js/sections.json')
@@ -96,5 +102,28 @@ export function populateDropdown(categoryDropdown) {
 export const updateDOM = (title, content) => {
     document.title = title; // Update the document title
     document.getElementById('section-content').innerHTML = content; // Update the section content
+
+    //document.getElementById('menuContent').innerHTML = slides.innerHTML;
+    console.log("updateDOM");
+
+
 };
+*/
+export let dataStore = {};
+
+// Function to load the JSON data
+export async function loadDataStore() {
+    try {
+        const response = await fetch('./js/sections.json');
+        dataStore = await response.json();
+        console.log(dataStore);
+    } catch (error) {
+        console.error('Failed to load sections data:', error);
+    }
+}
+
+// Function to get data for a specific section
+export function getSectionData(sectionKey) {
+    return dataStore[sectionKey]?.cards || [];
+}
 

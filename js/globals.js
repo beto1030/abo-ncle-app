@@ -1,15 +1,21 @@
-// globals.js
 export let currentSlideIndex = 0;
+export let currentSection = 'anatomy';
+
+// Getter and Setter for currentSlideIndex
+export function getCurrentSlideIndex() {
+    return currentSlideIndex;
+}
 
 export function setCurrentSlideIndex(index) {
     currentSlideIndex = index;
 }
 
-export let slides = [];
+// Getter and Setter for currentSection
+export function getCurrentSection() {
+    return currentSection;
+}
 
-//export const slideElement= document.getElementById('carousel-slide');
-
-//export const slideElements = document.getElementsByClassName('carousel-slide');
-
-export const slideElements = document.getElementById('section-content').children;
+export function setCurrentSection(section) {
+    currentSection = section;
+}
 
