@@ -12,41 +12,31 @@
 </head>
 <body>
 
-
-
-    <main>
-            <div class="category-header">
-                <select id="category-dropdown" class="category-dropdown"></select>
-            </div>
-        <div class="main-content">
-            <div class="carousel-container" id="carousel-container">
-                <div id="section-content"></div>
-
-                <!-- Popup Grid View (outside of carousel-container) -->
-                <div id="grid-view-popup" class="hidden popup">
-                    <div class="popup-content">
-                        <span id="closePopupBtn" class="close-button">&times;</span>
-                        <div id="grid-view-container"></div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
+<div id="top-dropdown-container">
+        <select id="category-dropdown">
+            <!-- Options populated dynamically -->
+        </select>
+    </div>
+    <div class="container">
+  <div class="sidebar">
+        <div class="tabs-container">
+            <div class="tab menu-tab active" onclick="showMenu()">Menu</div>
+            <div class="tab notes-tab" onclick="showNotes()">Notes</div>
         </div>
-            <!-- Flashcard navigation buttons -->
-            <div class="carousel-nav">
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-            </div>
-                <div id="popupBtnContainer">
-                    <button id="openPopupBtn">View All Cards</button>
-                </div>
+        <ul class="menu numbered-list" id="menuContent">
+          <!-- More items as needed -->
+        </ul>
+        <div class="notes" id="notesContent" style="display: none;">
+          <!-- Notes content can go here -->
+          <p>Amet ratione ducimus explicabo culpa officiis aperiam repellat Quo ullam iusto officia aliquam nam temporibus, obcaecati earum quidem minima blanditiis numquam velit Ex ullam ratione fuga tenetur consectetur assumenda! Molestiae provident eaque et dignissimos laudantium Modi dolorum dolor enim odio corrupti in beatae explicabo dolore alias dolores vel Illo molestiae</p>
+        </div>
+  </div>
+  <div id="contentArea" class="content">
+      <img id="contentAreaImg" src="" alt="img here">
+  </div>
+</div>
 
 
-
-    </main>
         <!-- Video-->
         <!--<div class="video">video here</div>-->
 
@@ -55,9 +45,36 @@
 
     <script type="module" src="js/globals.js"></script>
     <script type="module" src="js/data.js"></script>
-    <script type="module" src="js/events.js"></script>
     <script type="module" src="js/ui.js"></script>
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/events.js"></script>
+    <script>
+        function showMenu() {
+          document.querySelector('.menu-tab').classList.add('active');
+          document.querySelector('.notes-tab').classList.remove('active');
+          document.getElementById('menuContent').style.display = 'flex';
+          document.getElementById('notesContent').style.display = 'none';
+        }
+        
+        function showNotes() {
+          document.querySelector('.notes-tab').classList.add('active');
+          document.querySelector('.menu-tab').classList.remove('active');
+          document.getElementById('notesContent').style.display = 'block';
+          document.getElementById('menuContent').style.display = 'none';
+        }
+
+        function changeImgSrc(str){
+          const imageElement = document.getElementById("contentAreaImg"); // Replace with your image element's ID
+          if (imageElement) {
+            console.log("found");
+            imageElement.src = `./imgs/${str}.png`;  // Change the source to the image based on imgName
+          } else {
+            console.error("Image element not found.");
+          }
+        }
+
+    </script>
+
 </body>
 </html>
 

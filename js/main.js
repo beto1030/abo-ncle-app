@@ -1,29 +1,23 @@
-import {populateDropdown, loadSection, updateDOMWithContent, updateDOM} from  './data.js';
-import {setupEventListeners} from './events.js';
-import { slides, setCurrentSlideIndex, slideElements } from './globals.js'; // Import the necessary variables
-import {showSlide} from './ui.js';
+import { loadDataStore, getSectionData, dataStore } from './data.js';
+import { setCurrentSection, getCurrentSection, setCurrentSlideIndex, getCurrentSlideIndex } from './globals.js';
+import { populateDropdown, populateMenu, populateNotesContent } from './ui.js';
+//import { setupEventListeners } from './events.js';
 
+async function initializeApp() {
 
-// Initialize the application on DOM content loaded
-document.addEventListener('DOMContentLoaded', function() {
+    await loadDataStore();
 
-    populateDropdown(document.querySelector('.category-dropdown'));
-    
-    loadSection('anatomy') // Call loadSection with the desired section
-    .then(({ title, content }) => { // Destructure title and content from the response
-        // Call updateDOMWithContent with the loaded data
+    const sections = Object.keys(dataStore);
+    populateDropdown(sections);
 
-        setTimeout(() => {
-            console.log(slideElements);
-        }, 2000); // 2000 milliseconds = 2 seconds
-        updateDOMWithContent({ title, content }, { slides, setCurrentSlideIndex, showSlide }, updateDOM);
+    populateMenu(getCurrentSection()); // Populate the menu with terms in the initial category
 
-        // Show the first slide after the content has been updated
-        showSlide(0, slideElements);
-    })
-    .catch(error => console.error('Error loading section:', error));
+     // Default to showing notes for the first category
+    const defaultCategory = sections[0];
+    populateNotesContent(defaultCategory);
 
+    //setupEventListeners();
+}
 
+initializeApp();
 
-    setupEventListeners();
-});

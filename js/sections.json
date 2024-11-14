@@ -1,20 +1,212 @@
 {
-  "sections": [
-    {
-      "key": "anatomy",
-      "title": "Anatomy"
-    },
-    {
-      "key": "pathology",
-      "title": "Pathology"
-    },
-    {
-      "key": "physiology",
-      "title": "Physiology"
-    },
-    {
-      "key": "test",
-      "title": "Test"
-    }
-  ]
+  "anatomy": {
+    "title": "Anatomy",
+    "cards": [
+      {
+        "title": "Cornea",
+        "content": "The cornea is the transparent, dome-shaped surface that covers the front of the eye.",
+        "imageSrc": "images/cornea.png"
+      },
+      {
+        "title": "Avascular",
+        "content": "Lack of blood vessels",
+        "imageSrc": "images/avascular.png"
+      },
+      {
+        "title": "Retina",
+        "content": "The retina is a layer of tissue in the back of the eye that senses light and sends images to your brain.",
+        "imageSrc": "images/retina.png"
+      },
+      {
+        "title": "Fovea",
+        "content": "Also known as the fovea centralis, is a small depression in the very center of the macula where eyesight is sharpest.",
+        "imageSrc": "images/fovea.png"
+      },
+      {
+        "title": "Macula",
+        "content": "This is a small, specialized area near the center of the retina responsible for sharp, detailed central vision.",
+        "imageSrc": "images/macula.png"
+      },
+      {
+        "title": "Eyelids",
+        "content": "The eyelids are the eyes first line of defense from forign bodies, as well as excessive light.",
+        "imageSrc": "images/eyelids.png"
+      },
+      {
+        "title": "Palpebral fissure",
+        "content": "This is the visible area of the eye, on average 15mm high by 30mm wide.",
+        "imageSrc": "images/palpebral_fissure.png"
+      },
+      {
+        "title": "Extraocular Muscles",
+        "content": "There are 6 extraocular muscles. Medial rectus, Lateral rectus, Superior rectus, Inferior rectus, Superior oblique, Inferior oblique.",
+        "imageSrc": "images/extraocular_muscles.png"
+      },
+      {
+        "title": "Iris",
+        "content": "The colored part of the eye",
+        "imageSrc": "images/iris.png"
+      },
+      {
+        "title": "Pupil",
+        "content": "Is the black circle at the center of the iris.",
+        "imageSrc": "images/pupil.png"
+      },
+      {
+        "title": "Sclera",
+        "content": "The white part of the eye",
+        "imageSrc": "images/sclera.png"
+      },
+      {
+        "title": "Conjunctiva",
+        "content": "The soft, thin, transparent loose mucus membrane that covers the sclera as well as the inside of the lids.",
+        "imageSrc": "images/conjunctiva.png"
+      },
+      {
+        "title": "Limbus",
+        "content": "This is the transition zone were the cornea and sclera meet.",
+        "imageSrc": "images/limbus.png"
+      },
+      {
+        "title": "Outermost Layer",
+        "content": "Together the cornea, sclera, conjunctiva and limbus form the eye's outermost layer",
+        "imageSrc": "images/outermost_layer.png"
+      },
+      {
+        "title": "Anterior Chamber",
+        "content": "This is a fluid filled space between the cornea and iris.",
+        "imageSrc": "images/anterior_chamber.png"
+      },
+      {
+        "title": "Posterior Chamber",
+        "content": "This is a fluid filled space between the iris and crystalline lens.",
+        "imageSrc": "images/posterior_chamber.png"
+      },
+      {
+        "title": "Crystalline Lens",
+        "content": "A flexible, transparent structure that is located in the posterior chamber behind the iris and in front of the vitreous body.",
+        "imageSrc": "images/crystalline_lens.png"
+      },
+      {
+        "title": "Aphakic",
+        "content": "Term for someone who has gotten there crytalline lens removed.",
+        "imageSrc": "images/aphakic.png"
+      },
+      {
+        "title": "Pseudophakic",
+        "content": "Term for someone who has gotten a intraocular implant (IOL), an artifical crystalline lens.",
+        "imageSrc": "images/pseudophakic.png"
+      },
+      {
+        "title": "Ciliary Body",
+        "content": "This is responsible for 2 things: 1. Producing aqueous humor so that the avascular parts of the eye (cornea and crystalline lens) get there nutrients; 2. Controlling Accomodation (the shape of the crystalline lens)",
+        "imageSrc": "images/ciliary_body.png"
+      },
+      {
+        "title": "Ciliary Muscles",
+        "content": "These muscles control the shape of the crystalline lens.",
+        "imageSrc": "images/ciliary_muscles.png"
+      },
+      {
+        "title": "Aqueous Humor",
+        "content": "Fluid that fills the anterior chamber and posterior chamber of the eye located between the cornea and the crystalline lens.",
+        "imageSrc": "images/aqueous_humor.png"
+      },
+      {
+        "title": "Iridocorneal angle",
+        "content": "It is the angle formed where the cornea meets the iris",
+        "imageSrc": "images/iridocorneal_angle.png"
+      },
+      {
+        "title": "Trabecular meshwork",
+        "content": "The trabecular meshwork is a specialized, spongy tissue structure located within the iridocorneal angle. It is responsible for filtering and draining the aqueous humor (the fluid that fills the anterior and posterior chambers of the eye) out of the eye.",
+        "imageSrc": "images/trabecular_meshwork.png"
+      },
+      {
+        "title": "Schlemm's canal",
+        "content": "A circular channel that runs around the entire circumference of the eye at the trabecular meshwork area, which is found in the limbus. This is where the aqueous humor produced by the ciliary muscles drains out of the eye",
+        "imageSrc": "images/schlemm's_canal.png"
+      },
+      {
+        "title": "Vitreous Humor",
+        "content": "Is a clear, gel-like substance that fills the large space in the back of the eye between the crystalline lens and retina.",
+        "imageSrc": "images/vitreous_humor.png"
+      },
+      {
+        "title": "Choroid",
+        "content": "A layer of tissue in the eye that sits between the sclera and retina.",
+        "imageSrc": "images/choroid.png"
+      },
+      {
+        "title": "Retina",
+        "content": "A light sensitive tissue at the back of the eye.",
+        "imageSrc": "images/retina.png"
+      },
+      {
+        "title": "Retinal Detachment",
+        "content": "This is when the retina detaches from the choroid, the tissue responsible for providing nourishment to it.",
+        "imageSrc": "images/retinal_detachment.png"
+      },
+      {
+        "title": "Macular Degeneration",
+        "content": "An eye condition that leads to the deterioration of the macula, the central part of the retina responsible for sharp, central vision",
+        "imageSrc": "images/macular_degeneration.png"
+      },
+      {
+        "title": "Optic disc",
+        "content": "Also known as the optic nerve head, is circular area located at the back of the eye where the optic nerve exits the retina.",
+        "imageSrc": "images/optic_disc.png"
+      },
+      {
+        "title": "Optic Nerve",
+        "content": "The optical nerve is a bundle of nerve fibers that carries visual information from the retina to the brain.",
+        "imageSrc": "images/optic_nerve.png"
+      }
+    ]
+  },
+  "pathology": {
+    "title": "Pathology",
+    "cards": [
+      {
+        "title": "Arcus Senilis",
+        "content": "Arcus senilis is a gray or white arc visible above and below the outer part of the cornea.",
+        "imageSrc": "images/arcus_senilis.png"
+      },
+      {
+        "title": "Cataract",
+        "content": "A cataract is a clouding of the lens of the eye, leading to a decrease in vision.",
+        "imageSrc": "images/cataract.png"
+      }
+    ]
+  },
+  "physiology": {
+    "title": "Physiology",
+    "cards": [
+      {
+        "title": "Cell Structure",
+        "content": "Physiology studies the structure and function of cells, including their energy production, reproduction, and communication.",
+        "imageSrc": "images/cell_structure.png"
+      },
+      {
+        "title": "Physiology",
+        "content": "Ocular physiology examines how the eye structures work together to create vision.",
+        "imageSrc": "images/physiology.png"
+      }
+    ]
+  },
+  "test": {
+    "title": "Test",
+    "cards": [
+      {
+        "title": "card 1",
+        "content": "Elit saepe id aspernatur quae veniam iure? Quidem iure sit praesentium eaque tempore. Nihil quis molestias similique quaerat atque culpa Harum itaque facilis iste accusamus possimus. Repudiandae ipsum omnis quisquam",
+        "imageSrc": "images/card_1.png"
+      },
+      {
+        "title": "card 2",
+        "content": "Elit saepe id aspernatur quae veniam iure? Quidem iure sit praesentium eaque tempore. Nihil quis molestias similique quaerat atque culpa Harum itaque facilis iste accusamus possimus. Repudiandae ipsum omnis quisquam",
+        "imageSrc": "images/card_2.png"
+      }
+    ]
+  }
 }

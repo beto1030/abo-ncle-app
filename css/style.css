@@ -3,6 +3,99 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* General container setup */
+.container {
+  display: flex;
+  height: 40vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 25%;
+  background-color: darkgray;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+  z-index: 1;
+  margin: 10px;
+}
+
+#menuContent, #notesContent {
+  background-color: lightgray;
+  height: 91%;
+  border-radius: 0 0 10px 10px;
+  overflow: scroll;
+}
+
+#contentAreaImg {
+    width: 600px;
+}
+
+.tabs-container {
+    display: flex;
+}
+
+/* Tabs at the top of the sidebar */
+.tab {
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+}
+
+/* Styles for inactive tabs */
+.menu-tab {
+  background-color: darkgray; /* Dark color for Menu tab */
+}
+
+.notes-tab {
+  background-color: darkgray; /* Lighter color for Notes tab */
+}
+
+/* Active tab styling */
+.tab.active {
+  background-color: lightgray;
+  border-bottom: none;
+  z-index: 2;
+}
+
+/* List of menu items */
+.menu, .notes {
+  list-style: none;
+  padding: 10px 0 0;
+  margin-top: 0;
+  padding-left: 10px;
+}
+
+.notes {
+    background-color: lightgray;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Content section styling */
+.content {
+  width: 75%;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* Header for the content section */
+.content h2 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.content p {
+  font-size: 18px;
+  color: #333;
+}
 
 main {
     
@@ -58,3 +151,47 @@ main {
 .carousel-nav{
     touch-action: manipulation; /* Prevents default touch actions like zooming */
 }
+
+/* menu numbered-list */
+/* Initialize the counter */
+
+.numbered-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ensures each item only takes up the content width */
+    gap: 8px; /* Space between items */
+}
+
+.numbered-list li{
+    position: relative;
+    counter-increment: list-counter;
+    padding: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+    padding-left: 1.5em;
+    cursor: pointer;
+}
+
+
+
+/* Display the counter value before each list item */
+.numbered-list li::before {
+  content: counter(list-counter) ". "; /* Shows the counter followed by a dot */
+  position: absolute;
+  left: 0; /* Position the number on the left */
+}
+
+/* Container for the dropdown at the top */
+#top-dropdown-container {
+    padding: 10px 0 0 10px;
+}
+
+/* Dropdown styling */
+#category-dropdown {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
