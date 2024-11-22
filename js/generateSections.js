@@ -120,7 +120,7 @@ async function generateSections() {
                     const content = slide.querySelector('p').textContent.trim();
 
                     // Convert title to lowercase and replace spaces with underscores for image filename
-                    const imageSrc = `images/${title.toLowerCase().replace(/ /g, "_")}.png`;
+                    const imageSrc = `images/${title.toLowerCase().replace(/ /g, "-")}.png`;
 
                     return { title, content, imageSrc };
                 });
