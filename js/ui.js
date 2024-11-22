@@ -20,6 +20,8 @@ export function populateDropdown(sections) {
         populateMenu(selectedCategory); // Update the menu terms based on the new category
         populateNotesContent(selectedCategory); // Show notes for the selected category
         //updateDOMWithContent([getSectionData(selectedCategory)[getCurrentSlideIndex()]]); // Show the first slide in the new category
+        showMenu(); // Ensure the menu tab is active
+
     });
 }
 
@@ -39,10 +41,28 @@ export function populateMenu(category) {
         listItem.classList.add('numbered-list');
 
         listItem.addEventListener('click', () => {
+            currentItemIndex = index; // Update the current index
             populateNotesContent(category, index); // Update notes based on selected term
+            updateMenuHighlight(menuContainer); // Highlight the selected item
+
 
         });
         menuContainer.appendChild(listItem);
+    });
+
+    // Automatically make the first item active
+    if (terms.length > 0) {
+        currentItemIndex = 0; // Reset the current index to 0
+        updateMenuHighlight(menuContainer); // Highlight the first item
+        populateNotesContent(category, currentItemIndex); // Display the notes for the first item
+    }
+
+}
+
+function updateMenuHighlight(menuContainer) {
+    const items = menuContainer.querySelectorAll('li'); // Get all list items
+    items.forEach((item, index) => {
+        item.classList.toggle('active', index === currentItemIndex); // Highlight the active item
     });
 }
 
@@ -66,6 +86,7 @@ export function populateNotesContent(category, index = 0) {
     // Update the image src based on the selected term's imageSrc property
     const contentImage = document.getElementById('contentAreaImg');
     if (contentImage && selectedTerm.imageSrc) {
+        console.log(selectedTerm.imageSrc);
         contentImage.src = selectedTerm.imageSrc;
     }
 }

@@ -3,36 +3,62 @@
     padding: 0;
     box-sizing: border-box;
 }
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align dropdown and content */
+    width: 100%; /* Full width of the viewport */
+    height: 100vh;
+    padding: 10px;
+}
 /* General container setup */
 .container {
-  display: flex;
-  height: 40vh;
-  font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row; /* Ensure sidebar and content are side by side */
+    overflow: hidden; /* Prevent content overflow */
+    min-width: 900px;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid #ccc; /* Optional: Add a border for structure */
+    border-radius: 10px;
 }
-
 /* Sidebar styling */
 .sidebar {
-  width: 25%;
-  background-color: darkgray;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
-  position: relative;
-  z-index: 1;
-  margin: 10px;
+    width: 25%;
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    max-height: 100%; /* Prevent sidebar from exceeding the container height */
+    min-height: 100%;
+    overflow-y: auto; /* Allow scrolling if content overflows */
 }
+.content {
+    flex: 1; /* Take the remaining space */
+    display: flex;
+    flex-direction: column; /* Ensure the audio bar is positioned at the bottom */
+    overflow-y: auto; /* Allow scrolling for content if necessary */
+    position: relative;
 
+}
 #menuContent, #notesContent {
-  background-color: lightgray;
-  height: 91%;
+  background-color: #e6e6e6;/*light*/
   border-radius: 0 0 10px 10px;
   overflow: scroll;
 }
 
 #contentAreaImg {
-    width: 600px;
+    width: 675px; /* Fixed width */
+    height: 450px; /* Fixed height (adjust as needed for your layout) */
+    object-fit: contain; /* Ensures the image fits within the box without being distorted */
+    display: block; /* Removes inline spacing below the image */
+    margin: 0 auto; /* Center the image horizontally */
+    background-color: #f9f9f9; /* Optional: Add a background color to fill empty space */
+    padding: 5px; /* Optional: Add padding around the image */
 }
+
+
 
 .tabs-container {
     display: flex;
@@ -50,17 +76,14 @@
 }
 
 /* Styles for inactive tabs */
-.menu-tab {
-  background-color: darkgray; /* Dark color for Menu tab */
+.menu-tab, .notes-tab {
+  background-color: #cccccc; /* light */
 }
 
-.notes-tab {
-  background-color: darkgray; /* Lighter color for Notes tab */
-}
 
 /* Active tab styling */
 .tab.active {
-  background-color: lightgray;
+  background-color: #e6e6e6;/*dark*/
   border-bottom: none;
   z-index: 2;
 }
@@ -71,19 +94,17 @@
   padding: 10px 0 0;
   margin-top: 0;
   padding-left: 10px;
+  height: 100%;
 }
 
 .notes {
-    background-color: lightgray;
-    height: 100%;
+    background-color: #cccccc;
     border-radius: 0 0 10px 10px;
 }
 
 /* Content section styling */
 .content {
   width: 75%;
-  padding: 20px;
-  background-color: #ffffff;
 }
 
 /* Header for the content section */
@@ -106,15 +127,10 @@ main {
 }
 
 .main-content {
-    border: solid 1px;
     border-radius: 6px;
-    text-align: center;
+    text-align: left;
     position: relative;
     overflow: hidden;
-    min-height: 200px;
-    min-width: 400px;
-    max-height: 200px;
-    max-width: 400px;
     
 }
 .flashcard-number {
@@ -131,7 +147,7 @@ main {
 }
 
 #section-content {
-    padding: 50px 0;
+    /*padding: 50px 0;*/
 }
 
 .carousel-nav {
@@ -165,12 +181,14 @@ main {
 .numbered-list li{
     position: relative;
     counter-increment: list-counter;
-    padding: 5px;
     font-size: 14px;
     text-decoration: none;
     color: #333;
     padding-left: 1.5em;
+    padding-top: 3px;
+    padding-bottom: 3px;
     cursor: pointer;
+
 }
 
 
@@ -184,7 +202,10 @@ main {
 
 /* Container for the dropdown at the top */
 #top-dropdown-container {
-    padding: 10px 0 0 10px;
+    max-width: 900px;
+    min-width: 900px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 /* Dropdown styling */
@@ -193,5 +214,57 @@ main {
     font-size: 16px;
     border-radius: 4px;
     border: 1px solid #ccc;
+}
+
+#menuContent li.active {
+    background-color: lightblue;
+    width: 95%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/* Container for the audio bar */
+.audio-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    border-top: 2px solid #ccc;
+    position: sticky; /* Keep the audio bar at the bottom of the content */
+    bottom: 0;
+    width: 100%;
+    max-height: 60px; /* Prevent the audio bar from exceeding a specific height */
+    z-index: 10;
+    border-radius: 0 0 10px 0;
+}
+/* Styling for the audio player */
+#audioPlayer {
+    flex: 1; /* Allow the audio player to take up as much space as needed */
+    max-width: 400px;
+}
+
+/* Container for the buttons */
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    margin-right: 10px;
+}
+
+/* Styling for the buttons */
+.nav-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
 }
 
