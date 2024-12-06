@@ -1,21 +1,27 @@
-export let currentSlideIndex = 0;
-export let currentSection = 'anatomy';
+export const state = {
+    currentSlideIndex: 0,
+    currentItemIndex: 0,
+    currentSection: 'anatomy',
+    currentMenuIndex: 0,
+    currentQuizIndex: 0,
+    clickedItems: new Set()
+};
 
-// Getter and Setter for currentSlideIndex
-export function getCurrentSlideIndex() {
-    return currentSlideIndex;
+// Functions for debugging or controlled updates
+export function updateState(key, value) {
+    if (key in state) {
+        state[key] = value;
+    } else {
+        console.warn(`State key "${key}" does not exist.`);
+    }
 }
 
-export function setCurrentSlideIndex(index) {
-    currentSlideIndex = index;
-}
-
-// Getter and Setter for currentSection
-export function getCurrentSection() {
-    return currentSection;
-}
-
-export function setCurrentSection(section) {
-    currentSection = section;
+export function getState(key) {
+    if (key in state) {
+        return state[key];
+    } else {
+        console.warn(`State key "${key}" does not exist.`);
+        return undefined;
+    }
 }
 
