@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Interactive Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/headerr.css">
     <link rel="stylesheet" href="css/mainn.css">
-    <link rel="stylesheet" href="css/carousell.css"> <!-- Add any other styles needed -->
+    <link rel="stylesheet" href="css/carousell.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all-cards-popup.css">
-    <link rel="stylesheet" href="css/quiz.css">
 </head>
 <body>
 
@@ -22,129 +21,56 @@
 
     <div class="container">
         <div class="sidebar">
-              <div class="tabs-container">
-                  <div class="tab menu-tab active" onclick="showMenu()">Menu</div>
-                  <div class="tab notes-tab" onclick="showNotes()">Notes</div>
-              </div>
-              <ul class="menu numbered-list" id="menuContent">
-                <!-- More items as needed -->
-              </ul>
 
-              <div id="quizModal" class="quiz-modal" style="display: none;">
-                  <div class="quiz-content">
-                      <h2 id="quizQuestion">Question goes here</h2>
-                      <ul id="quizOptions" class="quiz-options">
-                          <!-- Multiple-choice options will be dynamically added here -->
-                      </ul>
-                      <button id="closeQuiz">Close</button>
-                  </div>
+              <div class="tabs-container">
+                  <div id="menuTab" class="tab menu-tab active">Menu</div>
+                  <div id="notesTab" class="tab notes-tab">Notes</div>
               </div>
+
+              <ul class="menu numbered-list" id="menuContent">
+                <!-- Menu items will be dynamically added here -->
+              </ul>
 
               <div class="notes" id="notesContent" style="display: none;">
                 <!-- Notes content can go here -->
               </div>
         </div>
-        <div id="contentArea" class="content">
-            <img id="contentAreaImg" src="" alt="img here">
 
-            <div class="audio-bar">
-              <audio id="audioPlayer" controls>
-                  <source src="audio-file.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-              </audio>
-              <div class="button-group">
-                  <button class="nav-button prev" onclick="navigate(-1)">❮ PREV</button>
-                  <button class="nav-button next" onclick="navigate(1)">NEXT ❯</button>
-              </div>
-            </div>
+        <div id="contentArea" class="content">
+
+
+                <div id="dynamicContent">
+                    <img id="contentAreaImg" src="" alt="Image">
+                </div>
+
+
+                <div class="audio-bar">
+
+                      <audio id="audioPlayer" controls>
+                          <source src="audio-file.mp3" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                      </audio>
+
+                      <div class="button-group">
+
+                          <button id="prevBtn" class="nav-button prev">❮ PREV</button>
+                          <button id="nextBtn" class="nav-button next">NEXT ❯</button>
+
+                      </div>
+
+                </div>
+
         </div>
     </div>
 </div>
 
-        <!-- Video-->
-        <!--<div class="video">video here</div>-->
 
-
-
-
-    <script type="module" src="js/globals.js"></script>
-    <script type="module" src="js/data.js"></script>
-    <script type="module" src="js/ui.js"></script>
-    <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/events.js"></script>
-    <script type="module" src="js/quiz.js"></script>
-    <script>
-        let currentItemIndex = 0; // Tracks the currently active item
-
-        function showMenu() {
-            document.querySelector('.menu-tab').classList.add('active');
-            document.querySelector('.notes-tab').classList.remove('active');
-            document.getElementById('menuContent').style.display = 'flex';
-            document.getElementById('notesContent').style.display = 'none';
-        }
-
-        function showNotes() {
-            document.querySelector('.notes-tab').classList.add('active');
-            document.querySelector('.menu-tab').classList.remove('active');
-            document.getElementById('notesContent').style.display = 'block';
-            document.getElementById('menuContent').style.display = 'none';
-        }
-
-        function navigate(direction) {
-            const liElements = document.querySelectorAll('#menuContent li');
-            const totalItems = liElements.length;
-
-            if (totalItems === 0) {
-                console.error('No <li> elements found in #menuContent.');
-                return;
-            }
-
-            currentItemIndex = (currentItemIndex + direction + totalItems) % totalItems;
-            highlightCurrentItem(liElements, currentItemIndex);
-        }
-
-        function highlightCurrentItem(liElements, index) {
-            liElements.forEach(item => item.classList.remove('active'));
-            const currentItem = liElements[index];
-            currentItem.classList.add('active');
-            currentItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Update the notes and image dynamically
-            const selectedContent = currentItem.textContent.trim(); // Get the text content of the <li>
-            updateContent(selectedContent);
-        }
-
-        function updateContent(selectedTerm) {
-            // Update the notes content
-            const notesContent = document.getElementById('notesContent');
-            if (notesContent) {
-                notesContent.textContent = `Details about ${selectedTerm}`; // Example: Notes update logic
-            }
-
-            // Update the image source
-            const imageElement = document.getElementById('contentAreaImg');
-            if (imageElement) {
-                const imageName = selectedTerm.toLowerCase().replace(/\s+/g, '-'); // Example: Convert "Fibrous Tunic" -> "fibrous-tunic"
-                imageElement.src = `images/${imageName}.png`;
-            }
-        }
-
-        function initializeActiveItem() {
-            const liElements = document.querySelectorAll('#menuContent li');
-            if (liElements.length > 0) {
-                currentItemIndex = 0;
-                highlightCurrentItem(liElements, currentItemIndex);
-            } else {
-                console.error('No <li> elements found in #menuContent.');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeActiveItem();
-        });
-    </script>
-    
+<!-- Include JavaScript Files -->
+<script type="module" src="js/globals.js"></script>
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/data.js"></script>
+<script type="module" src="js/ui.js"></script>
+<script type="module" src="js/events.js"></script>
 
 </body>
 </html>
-
