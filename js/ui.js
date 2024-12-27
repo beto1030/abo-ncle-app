@@ -1,9 +1,69 @@
 import { getSectionData } from './data.js';
 import { state, updateState, getState } from './globals.js';
-import { quizData } from './quizData.js'; // Import quiz data
+//import { quizData } from './quizData.json'; // Import quiz data
+import { loadQuizData } from './dataLoader.js';
+
 import { loadQuiz } from './quiz.js';
 
+let quizData = {}; // To hold all quiz data
+let currentCategory = 'anatomy'; // Default category
 
+// Function to load questions for the current category
+async function loadQuestions() {
+    // Load quiz data if not already loaded
+    if (Object.keys(quizData).length === 0) {
+        quizData = await loadQuizData();
+    }
+
+    // Get the questions for the current category
+    const categoryQuestions = quizData[currentCategory];
+    if (!categoryQuestions) {
+        console.error('Invalid category:', currentCategory);
+        return;
+    }
+
+    // Get the container for the list of questions
+    const subList = document.getElementById('questionList');
+    subList.innerHTML = ''; // Clear existing questions
+
+    // Render the list of questions
+    categoryQuestions.forEach((quiz, index) => {
+        const subItem = document.createElement('li');
+        subItem.textContent = `Question ${index + 1}`;
+        subItem.classList.add('quiz-question-item');
+        subItem.dataset.index = index; // Store the quiz index for reference
+
+        subItem.addEventListener('click', () => {
+            loadQuiz(index); // Call loadQuiz to display the selected question
+        });
+
+        subList.appendChild(subItem);
+    });
+}
+
+// Function to switch categories
+export function switchCategory(category) {
+    if (quizData[category]) {
+        currentCategory = category; // Update the current category
+        loadQuestions(); // Load questions for the selected category
+    } else {
+        console.error('Category does not exist:', category);
+    }
+}
+
+// Initialize the UI
+export async function initializeUI() {
+    await loadQuestions(); // Load questions for the default category
+
+    // Add event listeners for category buttons
+    const categoryButtons = document.querySelectorAll('.category-button');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category; // Get the category from the button
+            switchCategory(category);
+        });
+    });
+}
 
 
 
@@ -108,11 +168,11 @@ export function loadImageForMenuItem(title) {
 }
 
 
-export function populateMenu(category) {
+export async function populateMenu(category) {
     const menuContainer = document.getElementById('menuContent');
     menuContainer.innerHTML = ''; // Clear existing items
 
-    const terms = getSectionData(category);
+    const terms = getSectionData(category); // Fetch section terms based on the category
 
     // Populate regular menu items
     terms.forEach(term => {
@@ -120,15 +180,12 @@ export function populateMenu(category) {
         listItem.textContent = term.title;
         listItem.classList.add('menu-item');
         menuContainer.appendChild(listItem);
-        
+
         listItem.addEventListener('click', () => {
-            // Handle displaying notes or images for the selected term
             updateState('currentMenuIndex', Array.from(menuContainer.children).indexOf(listItem));
             loadImageForMenuItem(term.title); // Load corresponding image
         });
     });
-
-
 
     // Add the "Quiz" menu item with a sublist
     const quizItem = document.createElement('li');
@@ -136,7 +193,7 @@ export function populateMenu(category) {
 
     // Create a toggle arrow and the label
     const arrow = document.createElement('span');
-    arrow.innerHTML= '&#9658;'; // Initially closed
+    arrow.innerHTML = '&#9658;'; // Initially closed
     arrow.classList.add('quiz-toggle-arrow');
     arrow.style.marginRight = '10px';
 
@@ -152,18 +209,28 @@ export function populateMenu(category) {
     subList.classList.add('quiz-sublist');
     subList.style.display = 'none'; // Hide by default
 
-    quizData.forEach((quiz, index) => {
-        const subItem = document.createElement('li');
-        subItem.textContent = `Question ${index + 1}`;
-        subItem.classList.add('quiz-question-item');
-        subItem.dataset.index = index; // Store the quiz index for reference
+    // Load quiz data dynamically if not already loaded
+    if (Object.keys(quizData).length === 0) {
+        quizData = await loadQuizData(); // Fetch and cache quiz data
+    }
 
-        subItem.addEventListener('click', () => {
-            loadQuiz(index); // Call loadQuiz to display the selected question
+    const categoryQuizzes = quizData[category]; // Access quizzes for the current category
+    if (!categoryQuizzes) {
+        console.error(`No quiz data available for category: ${category}`);
+    } else {
+        categoryQuizzes.forEach((quiz, index) => {
+            const subItem = document.createElement('li');
+            subItem.textContent = `Question ${index + 1}`;
+            subItem.classList.add('quiz-question-item');
+            subItem.dataset.index = index; // Store the quiz index for reference
+
+            subItem.addEventListener('click', () => {
+                loadQuiz(index); // Call loadQuiz to display the selected question
+            });
+
+            subList.appendChild(subItem);
         });
-
-        subList.appendChild(subItem);
-    });
+    }
 
     quizItem.appendChild(subList);
     menuContainer.appendChild(quizItem);
@@ -173,9 +240,8 @@ export function populateMenu(category) {
         e.stopPropagation(); // Prevent triggering events on parent elements
         const isOpen = subList.style.display === 'block';
         subList.style.display = isOpen ? 'none' : 'block'; // Toggle display
-        arrow.innerHTML= isOpen ? '&#9658;' : '&#9660;'; // Toggle arrow symbol
+        arrow.innerHTML = isOpen ? '&#9658;' : '&#9660;'; // Toggle arrow symbol
     });
-
 
     updateState('currentSection', category);
     updateState('currentMenuIndex', 0); // Reset menu index to 0
@@ -298,7 +364,6 @@ export function navigateMenu(direction) {
     }
 
     let currentMenuIndex = getState('currentMenuIndex');
-    const previousMenuIndex = currentMenuIndex;
     currentMenuIndex += direction;
 
     // Ensure the index stays within bounds
@@ -308,7 +373,6 @@ export function navigateMenu(direction) {
     }
 
     const currentItem = menuItems[currentMenuIndex];
-    const previousItem = menuItems[previousMenuIndex];
 
     const menuContent = document.getElementById('menuContent'); // Notes content section
     const notesContent = document.getElementById('notesContent'); // Notes content section
@@ -334,7 +398,7 @@ export function navigateMenu(direction) {
         if (direction > 0) {
             if (subList && subList.querySelectorAll('li').length > 0) {
                 // Move to the first nested quiz question
-                currentMenuIndex = Array.from(menuItems).indexOf(subList.querySelector('li'));
+                currentMenuIndex = Array.from(menuItems).indexOf(subList.querySelector('li'));//this lines is converting the menuItems list of li element into an array so then it can use the indexOf method for arrays
                 updateState('currentMenuIndex', currentMenuIndex);
             } else {
                 // If no nested items, skip the "Quiz" item
