@@ -1,0 +1,150 @@
+{
+  "anatomy": [
+    {
+      "question": "What does the eyelids do?",
+      "options": [
+        "There are 6 extraocular muscles controlling eye movement: the superior rectus moves the eye up, the ...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ...",
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye..."
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "What does the fibrous tunic do?",
+      "options": [
+        "There are 6 extraocular muscles controlling eye movement: the superior rectus moves the eye up, the ...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ...",
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape..."
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "What does the sclera do?",
+      "options": [
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape...",
+        "There are 6 extraocular muscles controlling eye movement: the superior rectus moves the eye up, the ...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye..."
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What does the extraocular muscles do?",
+      "options": [
+        "There are 6 extraocular muscles controlling eye movement: the superior rectus moves the eye up, the ...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ...",
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape..."
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "What does the cornea do?",
+      "options": [
+        "The cornea is the clear, front part of the eye that helps focus light and shields it from dirt and d...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye...",
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ..."
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "What does the tear film do?",
+      "options": [
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ...",
+        "The tear film, often called the pre-corneal layers, have three layers that keep your eyes healthy an..."
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "What does the corneal layers do?",
+      "options": [
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye...",
+        "The cornea has five layers that work together to protect the eye and maintain vision. The epithelium...",
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ..."
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "What does the vascular tunic do?",
+      "options": [
+        "The vascular tunic, or uvea, is the middle layer of the eye responsible for providing blood supply, ...",
+        "The eyelids protect your eyes, keep them moist, and control how much light gets in. They’re your eye...",
+        "The fibrous tunic, the eye's outer layer, includes the sclera and cornea. The sclera maintains shape...",
+        "The sclera is the white, tough outer layer of the eye that protects its inner structures, maintains ..."
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "pathology": [
+    {
+      "question": "What does the arcus senilis do?",
+      "options": [
+        "General placeholder content",
+        "A cataract is a clouding of the lens of the eye, leading to a decrease in vision.",
+        "General placeholder content",
+        "Arcus senilis is a gray or white arc visible above and below the outer part of the cornea."
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "What does the cataract do?",
+      "options": [
+        "A cataract is a clouding of the lens of the eye, leading to a decrease in vision.",
+        "Arcus senilis is a gray or white arc visible above and below the outer part of the cornea.",
+        "General placeholder content",
+        "General placeholder content"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "physiology": [
+    {
+      "question": "What does the cell structure do?",
+      "options": [
+        "Ocular physiology examines how the eye structures work together to create vision.",
+        "General placeholder content",
+        "Physiology studies the structure and function of cells, including their energy production, reproduct...",
+        "General placeholder content"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What does the physiology do?",
+      "options": [
+        "General placeholder content",
+        "General placeholder content",
+        "Physiology studies the structure and function of cells, including their energy production, reproduct...",
+        "Ocular physiology examines how the eye structures work together to create vision."
+      ],
+      "correctAnswer": 3
+    }
+  ],
+  "test": [
+    {
+      "question": "What does the card 1 do?",
+      "options": [
+        "General placeholder content",
+        "General placeholder content",
+        "Elit saepe id aspernatur quae veniam iure? Quidem iure sit praesentium eaque tempore. Nihil quis mol...",
+        "Elit saepe id aspernatur quae veniam iure? Quidem iure sit praesentium eaque tempore. Nihil quis mol..."
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What does the card 2 do?",
+      "options": [
+        "Elit saepe id aspernatur quae veniam iure? Quidem iure sit praesentium eaque tempore. Nihil quis mol...",
+        "General placeholder content",
+        "Elit saepe id aspernatur quae veniam iure? Quidem iure sit praesentium eaque tempore. Nihil quis mol...",
+        "General placeholder content"
+      ],
+      "correctAnswer": 0
+    }
+  ]
+}
