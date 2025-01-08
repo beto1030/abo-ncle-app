@@ -1,16 +1,20 @@
 // Define the application state grouped into categories
 export const state = {
+    /*
     slides: {
         currentSlideIndex: 0,
     },
+    */
     menu: {
-        currentItemIndex: 0,
+        //currentItemIndex: 0,
         currentMenuIndex: 0,
-        clickedItems: new Set(),
+        //clickedItems: new Set(),
     },
+    /*
     quiz: {
         currentQuizIndex: 0,
     },
+    */
     sections: {
         currentSection: 'anatomy',
     },

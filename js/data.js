@@ -7,7 +7,7 @@ export async function loadDataStore() {
     try {
         const response = await fetch('./js/sections.json');
         dataStore = await response.json();
-        console.log(dataStore);
+        //console.log(dataStore);
     } catch (error) {
         console.error('Failed to load sections data:', error);
     }

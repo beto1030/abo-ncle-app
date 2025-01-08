@@ -66,11 +66,15 @@
 
 
 <!-- Include JavaScript Files -->
-<script type="module" src="js/globals.js"></script>
-<script type="module" src="js/main.js"></script>
-<script type="module" src="js/data.js"></script>
+<script type="module" src="js/state.js"></script>
 <script type="module" src="js/ui.js"></script>
+<script type="module" src="js/main.js"></script>
 <script type="module" src="js/events.js"></script>
+<script type="module">
+    import { loadQuizData } from './js/dataLoader.js';
+    loadQuizData().then(data => console.log('Test Quiz Data:', data));
+</script>
+
 
 </body>
 </html>
